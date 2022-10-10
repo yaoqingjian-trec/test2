@@ -89,3 +89,20 @@ jobs:
         ./kustomize build . | kubectl apply -f -
         kubectl rollout status deployment/$DEPLOYMENT_NAME
         kubectl get services -o wide
+        
+    - uses: actions/checkout@v3
+      with:
+        repository: https://github.com/yaoqingjian-trec/test-devops.git
+        ref: 'master'
+        token:  ${{ secrets.ACTIONS_GITHUB_TOKEN }}
+    - name: setup git config
+      run: |
+        git config user.name "GitHub Actions Bot"
+        git config user.email "test.gmail.com"
+        git clone https://github.com/yaoqingjian-trec/test-devops.git
+        cd test-devops
+        git checkout -b release/test1
+        echo test111 >aa.text
+        git add aa.text
+        git commit -m 'aaa'
+    - run: git push origin release/test1
