@@ -58,11 +58,11 @@ jobs:
         git config --global user.name "test"
         git clone https://${{ secrets.ACTIONS_GITHUB_TOKEN }}@github.com/yaoqingjian-trec/test-devops.git
         cd test-devops
-        git checkout -b release/test2
+        git checkout -b release/test3
         echo test111 >aa.text
         git add aa.text
         git commit -m 'aaa'
-        git push origin release/test2
+        git push origin release/test3
     - name: pull-request-action
       uses: vsoch/pull-request-action@master
       env:
