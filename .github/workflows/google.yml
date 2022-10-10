@@ -46,8 +46,6 @@ jobs:
         #ref: "main"
     - name: setup git config
       run: |
-        #git config user.name "GitHub Actions Bot"
-        #git config user.email "test.gmail.com"
         git clone https://github.com/yaoqingjian-trec/test-devops.git
         cd test-devops
         git checkout -b release/test1
