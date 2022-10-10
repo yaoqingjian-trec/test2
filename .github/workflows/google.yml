@@ -46,9 +46,8 @@ jobs:
         #ref: "main"
     - name: Setup SSH Keys and known_hosts
       run: |
-        mkdir -p ~/.ssh
-        ssh-keyscan github.com >> ~/.ssh/known_hosts
-        ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
+        eval `ssh-agent -s`
+        ssh-add - <<< '${{ secrets.SSH_PRIVATE_KEY }}'
     - name: setup git config
       run: |
         git clone git@github.com:yaoqingjian-trec/test-devops.git
