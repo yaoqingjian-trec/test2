@@ -62,4 +62,4 @@ jobs:
         echo test111 >aa.text
         git add aa.text
         git commit -m 'aaa'
-    - run: git push origin release/test1
+        git push origin release/test1
