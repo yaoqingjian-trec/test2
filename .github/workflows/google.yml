@@ -66,7 +66,7 @@ jobs:
     - name: pull-request-action
       uses: vsoch/pull-request-action@master
       env:
-        GITHUB_TOKEN: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
-        BRANCH_PREFIX: "release/test3"
+        PULL_REQUEST_TOKEN: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
+        PULL_REQUEST_FROM_BRANCH: "release/test3"
         PULL_REQUEST_BRANCH: "main"
         PULL_REQUEST_REPOSITORY: git@github.com:yaoqingjian-trec/test-devops.git
