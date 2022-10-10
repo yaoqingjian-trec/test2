@@ -41,9 +41,10 @@ jobs:
         
     - uses: actions/checkout@v3
       with:
-        repository: https://github.com/yaoqingjian-trec/test-devops.git
-        ref: 'master'
-        token:  ${{ secrets.ACTIONS_GITHUB_TOKEN }}
+        repository: yaoqingjian-trec/https://github.com/yaoqingjian-trec/test-devops.git
+        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        #ref: 'master'
+        #token:  ${{ secrets.ACTIONS_GITHUB_TOKEN }}
     - name: setup git config
       run: |
         git config user.name "GitHub Actions Bot"
