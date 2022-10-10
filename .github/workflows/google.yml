@@ -45,28 +45,28 @@ jobs:
         #repository: yaoqingjian-trec/test-devops.git
         #ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
         #ref: "main"
-    - name: Setup SSH Keys and known_hosts
-      run: |
-        eval `ssh-agent -s`
-        ssh-add - <<< '${{ secrets.SSH_PRIVATE_KEY }}'
+#     - name: Setup SSH Keys and known_hosts
+#       run: |
+#         eval `ssh-agent -s`
+#         ssh-add - <<< '${{ secrets.SSH_PRIVATE_KEY }}'
     #- name: setup git config
     #  run: |
     #    git clone git@github.com:yaoqingjian-trec/test-devops.git
-    - name: setup git config
-      run: |
-        git config --global user.email "you@example.com"
-        git config --global user.name "test"
-        git clone https://${{ secrets.ACTIONS_GITHUB_TOKEN }}@github.com/yaoqingjian-trec/test-devops.git
-        cd test-devops
-        git checkout -b release/test3
-        echo test111 >aa.text
-        git add aa.text
-        git commit -m 'aaa'
-        git push origin release/test3
+#     - name: setup git config
+#       run: |
+#         git config --global user.email "you@example.com"
+#         git config --global user.name "test"
+#         git clone https://${{ secrets.ACTIONS_GITHUB_TOKEN }}@github.com/yaoqingjian-trec/test-devops.git
+#         cd test-devops
+#         git checkout -b release/test3
+#         echo test111 >aa.text
+#         git add aa.text
+#         git commit -m 'aaa'
+#         git push origin release/test3
     - name: pull-request-action
       uses: vsoch/pull-request-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
-        BRANCH_PREFIX: "release/"
+        BRANCH_PREFIX: "release/test3"
         PULL_REQUEST_BRANCH: "main"
         PULL_REQUEST_REPOSITORY: git@github.com:yaoqingjian-trec/test-devops.git
