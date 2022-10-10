@@ -46,7 +46,7 @@ jobs:
         #ref: "main"
     - name: setup git config
       run: |
-        git clone https://github.com/yaoqingjian-trec/test-devops.git
+        git clone git@github.com:yaoqingjian-trec/test-devops.git
         cd test-devops
         git checkout -b release/test1
         echo test111 >aa.text
